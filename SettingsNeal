@@ -1,0 +1,21 @@
+--- Local
+local DiscordInvite = "Trôn Trôn Viet Nam"
+
+-- _G.
+_G.Key_System = false
+_G.Version = "Version: 2.1"
+_G.Discord = DiscordInvite
+-- Getgenv
+getgenv().Discord = DiscordInvite
+
+-- Anti Lag
+
+if getgenv().AntiLag or _G.AntiLag then
+	local renderStepped = game:GetService("RunService").RenderStepped
+	local function GetFPS() 
+		renderStepped:Wait() 
+		local V = 0 for _ = 1, 5 do V += 1 / renderStepped:Wait() 
+		end return math.round(V / 5) 
+	end
+     spawn(function()setfpscap(GetFPS())end)
+end
